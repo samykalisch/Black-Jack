@@ -1,5 +1,5 @@
 ## Blackjack V 1.0
-## Samuel Kalisch Yanez
+## Samuel Kalisch 
 ## August 2022
 
 import random as r
@@ -218,7 +218,7 @@ class Game:
     
     # -------------- shuffles deck -------------- 
     self.deck.shuffle()
-    
+  
     # --------------  game repeats until player has no money -------------- 
     while self.player.money > 0:
       
@@ -317,8 +317,8 @@ class Game:
     dealer_bj = True if len(self.dealer.hand) == 2 and dealer_score == 21 else False 
     player_bj = True if len(self.player.hand) == 2 and player_score == 21 else False
     
-    # change bet if player bj
-    if player_bj: self.player.bet *= round(self.player.bet*1.5)
+    # bj bonus
+    bj_bonus  =  round(self.player.bet*1.5) if player_bj else 0
     
     # show scores on the screen 
     print(50*'-','\n')
@@ -344,8 +344,8 @@ class Game:
     else: result = None
 
     if result:
-      print(f'Congratulation you have won ${self.player.bet}!!!')
-      self.player.money += self.player.bet
+      print(f'Congratulation you have won ${self.player.bet+ bj_bonus}!!!')
+      self.player.money += self.player.bet + bj_bonus
       
     elif result == None:
       print(f'The game has ended in a tie.')
@@ -409,8 +409,9 @@ if __name__ == '__main__':
 
 
 # BUGS/FIXES:
-# 1. add insurance
-# 2. show only abailable moves
-# 3. add splitting option
+# 1. add splitting option
+# 2. add insurance
+# 3. show only abailable moves
+# 4. 
 
 
