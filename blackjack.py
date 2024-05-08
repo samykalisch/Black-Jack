@@ -411,7 +411,7 @@ if __name__ == '__main__':
 # BUGS/FIXES:
 # 1. add splitting option
 # 2. add insurance
-# 3. show only abailable moves
+# 3. show only available moves
 # 4. 
 
 
